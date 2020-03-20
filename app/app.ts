@@ -29,7 +29,7 @@ else{
     return inputElement.value;
  }
 }
-
+//
 //prints the player's score and name on the screen, in case the name field
 // is empty it prints by default the one with the parameter
 function postscore(score: number, playerName: string="Multimath player"): void {
