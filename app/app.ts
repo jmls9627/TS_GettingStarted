@@ -1,12 +1,15 @@
 //
 function startGame(){
      //starting a new game
-                                                         //id
+                                                     //id-from-html
     let playerName: string | undefined = getInputValue('playername');//save the name in the playername variable through the getInputValue method
 
-
     logplayer(playerName);
+
     postscore(80,playerName);
+    postscore(-5,playerName);
+
+
   
 //  var messagesElement = document.getElementById('messages');
 //messagesElement!.innerHTML='welcome to multimath!!! Starting new game...';
@@ -29,17 +32,34 @@ else{
     return inputElement.value;
  }
 }
-//
+
 //prints the player's score and name on the screen, in case the name field
 // is empty it prints by default the one with the parameter
 function postscore(score: number, playerName: string="Multimath player"): void {
+
+let logger:(value: string) => void;
+
+if(score<0){
+    logger=logError;
+}
+else{
+    logger=logMessage;
+}
+
 const scoreElement: HTMLElement| null= document.getElementById('postedScores');
     scoreElement!.innerText=`${score} - ${playerName}`;
 
-
+    logger(`Score: ${score}`);
 }
-
 
 document.getElementById('startGame')!.addEventListener('click', startGame);
 
+/*function logMessage(message: string): void {
+  console.log(message);
+}*/
+const logMessage = (message: string): void => console.log(message);
+//logMessage("Welcome to MUlTiMaTh..");
 
+function logError(error:string):void{
+    console.error(error);
+}
