@@ -63,3 +63,21 @@ const logMessage = (message: string): void => console.log(message);
 function logError(error:string):void{
     console.error(error);
 }
+
+/*
+let myResult: Result={
+    playerName:"JoseMAnuel",
+    score:20,
+    problemCount:5,
+    factor:7,
+};
+
+let player1: Person = {
+    name:"JoseMAnuel",
+   formatName: ()=>"JSUS",
+};
+*/
+
+const firstPlayer:Player=new Player();
+firstPlayer.name="slayer";
+console.log(firstPlayer.name);
