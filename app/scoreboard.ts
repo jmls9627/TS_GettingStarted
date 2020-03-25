@@ -1,19 +1,19 @@
-/// <reference path="results.ts" />
+//// <reference path="results.ts" />
+import {Result} from './results';
+export class Scoreboard {
 
-class Scoreboard {
-
-    private results:Result[]=[];
+    private result:Result[]=[];
 
 
     addResult(newResult:Result):void{
-        this.results.push(newResult);
+        this.result.push(newResult);
     }
 
     updateScoreboard():void{
         let output:string="<h2>Scoreboard</h2>"
 
-        for(let i=0; i<this.results.length; i++){
-            const result:Result=this.results[i];
+        for(let i=0; i<this.result.length; i++){
+            const result:Result=this.result[i];
             output+="<h4>";
             output+= result.playerName + "  :  " + result.score + "/" + result.problemCount + "  for factor  " + result.factor;
             output+="</h4>"; 
